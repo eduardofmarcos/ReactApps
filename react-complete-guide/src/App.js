@@ -1,36 +1,32 @@
 /*disable eslint*/
 import React, { Component } from "react";
+import style from "styled-components";
+//import Radium, { StyleRoot } from "radium";
+import classes from "./App.css";
 import "./App.css";
 import Person from "./Person/Person";
+
+// const StyledButton = style.button`
+//   margin-top: 20px;
+//   background-color: ${props => (props.alt ? "red" : "green")};
+//   color: white;
+//   font: inherit;
+//   border: 2px solid blue;
+//   padding: 8px;
+//   cursor: pointer;
+//   dislay: block;
+
+//   &:hover {
+//     background-color: ${props => (props.alt ? "salmon" : "lightgreen")};
+//     color: black;
+//   };
+// `;
 
 class App extends Component {
   state = {
     persons: [
       { id: "1", name: "eduardo florentino marcos", age: 32 },
-      { id: "2", name: "roberto", age: 32 },
-      { id: "3", name: "carlos", age: 32 },
-      { id: "4", name: "eduardo florentino marcos", age: 32 },
-      { id: "5", name: "roberto", age: 32 },
-      { id: "6", name: "eduardo florentino marcos", age: 32 },
-      { id: "7", name: "roberto", age: 32 },
-      { id: "8", name: "eduardo florentino marcos", age: 32 },
-      { id: "9", name: "roberto", age: 32 },
-      { id: "dfs11df", name: "eduardo florentino marcos", age: 32 },
-      { id: "111", name: "roberto", age: 32 },
-      { id: "11111", name: "eduardo florentino marcos", age: 32 },
-      { id: "111111", name: "roberto", age: 32 },
-      { id: "343", name: "eduardo florentino marcos", age: 32 },
-      { id: "234234", name: "roberto", age: 32 },
-      { id: "45435", name: "eduardo florentino marcos", age: 32 },
-      { id: "543455554", name: "roberto", age: 32 },
-      { id: "34534534455", name: "eduardo florentino marcos", age: 32 },
-      { id: "3453453453454", name: "roberto", age: 32 },
-      { id: "4545", name: "eduardo florentino marcos", age: 32 },
-      { id: "dfdfdfdfdf", name: "roberto", age: 32 },
-      { id: "45454325345346", name: "eduardo florentino marcos", age: 32 },
-      { id: "345345", name: "roberto", age: 32 },
-      { id: "34543543534534534", name: "eduardo florentino marcos", age: 32 },
-      { id: "345345345345345345345", name: "roberto", age: 32 }
+      { id: "2", name: "roberto", age: 32 }
     ],
     showPersons: false
   };
@@ -74,14 +70,11 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      marginTop: "20px",
-      backgroundColor: "white",
-      font: "inherit",
-      border: "2px solid blue",
-      padding: "8px",
-      cursor: "pointer"
-    };
+
+    let className = null;
+    if (this.state.persons.length < 3) {
+      className = classes.red;
+    }
 
     let persons = null;
 
@@ -104,13 +97,23 @@ class App extends Component {
           ))}
         </div>
       );
+
+      style.backgroundColor = "red";
+      // style[":hover"] = {
+      //   backgroundColor: "salmon",
+      //   color: "black"
+      // };
     }
+    //always is going to return html/js/jsx
     return (
-      <div className="App">
+      <div className={classes.App}>
         <header className="App-header">SurfDiary</header>
-        <button style={style} onClick={this.togglePersonsHandler}>
-          Show surfers!
+        <p className={className}>It's working!</p>
+
+        <button className={classes.Button} onClick={this.togglePersonsHandler}>
+          Show Surfers!
         </button>
+
         {persons}
       </div>
     );
