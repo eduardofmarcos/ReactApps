@@ -8,6 +8,12 @@
   background-color: #efe8ff;
 }
 
-.Person input {
+.Input {
   border: 1px solid #ccc;
+}
+
+@media (min-width: 500px) {
+  .Person {
+    width: 450px;
+  }
 }

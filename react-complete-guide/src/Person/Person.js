@@ -2,6 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import classes from "./Person.css";
 //import Radium, {StyleRoot} from "radium";
 //import "./Person.css";
 
@@ -26,16 +27,16 @@ const s = (a, b) => {
 const person = props => {
   return (
     //passing the referencing of the function declared on App.js
-    <StyledDiv>
+    <div className={classes.Person}>
       <p onClick={props.click}>Click here to delete this box</p>
       <p>My name is {props.name}</p>
       <p>I have {props.age} years old</p>
       <p>I live in {props.country}!</p>
-      <input onChange={props.changed}></input>
+      <input className={classes.Input} onChange={props.changed}></input>
       <p>
         {props.children} {s(1, 7)}
       </p>
-    </StyledDiv>
+    </div>
   );
 };
 

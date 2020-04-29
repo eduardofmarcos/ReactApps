@@ -26,7 +26,9 @@ class App extends Component {
   state = {
     persons: [
       { id: "1", name: "eduardo florentino marcos", age: 32 },
-      { id: "2", name: "roberto", age: 32 }
+      { id: "2", name: "roberto", age: 32 },
+      { id: "3", name: "roberto", age: 32 },
+      { id: "4", name: "roberto", age: 32 }
     ],
     showPersons: false
   };
@@ -70,11 +72,12 @@ class App extends Component {
   };
 
   render() {
-
     let className = null;
     if (this.state.persons.length < 3) {
       className = classes.red;
     }
+
+    let btnClass = "";
 
     let persons = null;
 
@@ -98,11 +101,7 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = "red";
-      // style[":hover"] = {
-      //   backgroundColor: "salmon",
-      //   color: "black"
-      // };
+      btnClass = classes.Red;
     }
     //always is going to return html/js/jsx
     return (
@@ -110,7 +109,7 @@ class App extends Component {
         <header className="App-header">SurfDiary</header>
         <p className={className}>It's working!</p>
 
-        <button className={classes.Button} onClick={this.togglePersonsHandler}>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
           Show Surfers!
         </button>
 
