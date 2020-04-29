@@ -1,30 +1,30 @@
 /*disable eslint */
 
 import React from "react";
-import styled from "styled-components";
+//import styled from "styled-components";
 import classes from "./Person.css";
 //import Radium, {StyleRoot} from "radium";
 //import "./Person.css";
 
-const StyledDiv = styled.div`
-  width: 60%;
-  margin: 16px auto;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
-  padding: 16px;
-  text-align: center;
-  background-color: #efe8ff;
+// const StyledDiv = styled.div`
+//   width: 60%;
+//   margin: 16px auto;
+//   border: 1px solid #eee;
+//   box-shadow: 0 2px 3px #ccc;
+//   padding: 16px;
+//   text-align: center;
+//   background-color: #efe8ff;
 
-  @media (min-width: 500px) {
-    width: 450px;
-  }
-`;
+//   @media (min-width: 500px) {
+//     width: 450px;
+//   }
+// `;
 
 const s = (a, b) => {
   return a + b;
 };
 
-const person = props => {
+const Person = props => {
   return (
     //passing the referencing of the function declared on App.js
     <div className={classes.Person}>
@@ -40,4 +40,4 @@ const person = props => {
   );
 };
 
-export default person;
+export default Person;
