@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./../Cockpit/Cockpit.css";
 
 const Cockpit = props => {
@@ -12,7 +12,13 @@ const Cockpit = props => {
     btnRed = classes.Red;
   }
 
-  
+  useEffect(() => {
+    console.log("useeffect");
+    setTimeout(() => {
+      alert("Saved data do the cloud!");
+    }, 1000);
+  }, [props.persons]);
+
   return (
     <div className={classes.Cockpit}>
       <header className="App-header">SurfDiary</header>

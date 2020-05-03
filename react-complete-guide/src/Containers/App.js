@@ -17,6 +17,16 @@ class App extends Component {
     showPersons: false
   };
 
+ 
+
+  componentDidMount = () => {
+    console.log("App - component did mount");
+  };
+
+  componentDidUpdate = ()=>{
+    console.log('App - component did updated')
+  }
+
   /******** Handlers ********/
   switchOnchangeHandler = (event, id) => {
     console.log(id);
@@ -58,6 +68,7 @@ class App extends Component {
         stateStatus={this.state.showPersons}
         toggle={this.togglePersonsHandler}
         stateLength={this.state.persons.length}
+        persons = {this.state.persons}
       />
     );
 
@@ -72,6 +83,8 @@ class App extends Component {
         />
       );
     }
+
+    
 
     //always is going to return html/js/jsx
     return (
