@@ -11,8 +11,23 @@ class App extends Component {
       userInfo: null,
       repos: [],
       starred: [],
+      bRepoActive: false,
+      bStarredActive: false,
     };
   }
+
+  toggleAbuttonHandler = (event) => {
+    console.log(event.target.innerText);
+    if (event.target.innerText.includes('repositorios')) {
+      this.setState({
+        bRepoActive: !this.state.bRepoActive,
+      });
+    } else if (event.target.innerText.includes('Favoritos')) {
+      this.setState({
+        bStarredActive: !this.state.bStarredActive,
+      });
+    }
+  };
 
   requestHandler = (event) => {
     const value = event.target.value;
@@ -67,10 +82,13 @@ class App extends Component {
   render() {
     return (
       <AppContent
+        toggleAbuttonHandler={(event) => this.toggleAbuttonHandler(event)}
         requestHandler={(event) => this.requestHandler(event)}
         userinfo={this.state.userInfo}
         repos={this.state.repos}
         starred={this.state.starred}
+        buttonRepoStatus={this.state.bRepoActive}
+        buttonStarredStatus={this.state.bStarredActive}
       />
     );
   }

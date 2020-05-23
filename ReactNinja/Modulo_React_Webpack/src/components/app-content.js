@@ -4,17 +4,17 @@ import UserInfo from "./userInfo";
 import ActionButtons from "./actionButtons";
 import Repos from "./repos";
 
-const AppContent = ({ userinfo, repos, starred, requestHandler }) => (
+const AppContent = ({ userinfo, repos, starred, requestHandler, toggleAbuttonHandler, buttonRepoStatus, buttonStarredStatus }) => (
   <div className="app">
     <SearchBar requestHandler={requestHandler} />
     {!!userinfo && <UserInfo userinfo={userinfo} />}
-    {!!userinfo && <ActionButtons />}
+    {!!userinfo && <ActionButtons toggleAbuttonHandler={toggleAbuttonHandler}/>}
 
-    {!!repos.length && (
+    {!!repos.length && buttonRepoStatus &&(
       <Repos classname="repositories" repos={repos} title="Repositorios" />
     )}
 
-    {!!starred.length && (
+    {!!starred.length && buttonStarredStatus &&(
       <Repos classname="starred" repos={starred} title="Favoritos" />
     )}
   </div>

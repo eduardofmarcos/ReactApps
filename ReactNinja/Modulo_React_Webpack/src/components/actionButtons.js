@@ -2,8 +2,8 @@ import React from "react";
 
 const ActionButtons = props => (
   <div className="actions">
-    <button>Ver repositorios</button>
-    <button>Ver Favoritos</button>
+    <button onClick={props.toggleAbuttonHandler}>Ver repositorios</button>
+    <button onClick={props.toggleAbuttonHandler}>Ver Favoritos</button>
   </div>
 );
 
