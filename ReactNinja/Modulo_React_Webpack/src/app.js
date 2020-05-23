@@ -1,8 +1,8 @@
 //"use strict"
 
-import React, { Component } from "react";
-import AppContent from "./components/app-content";
-import ajax from "@fdaciuk/ajax";
+import React, { Component } from 'react';
+import AppContent from './components/app-content';
+import ajax from '@fdaciuk/ajax';
 
 class App extends Component {
   constructor() {
@@ -10,11 +10,11 @@ class App extends Component {
     this.state = {
       userInfo: null,
       repos: [],
-      starred: []
+      starred: [],
     };
   }
 
-  requestHandler = event => {
+  requestHandler = (event) => {
     const value = event.target.value;
     const keyCode = event.which || event.keyCode;
     const enterKey = 13;
@@ -23,7 +23,8 @@ class App extends Component {
         .get(
           `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}`
         )
-        .then(userObject => {
+        .then((userObject) => {
+          console.log(userObject);
           this.setState({
             userInfo: {
               photo: userObject.avatar_url,
@@ -31,11 +32,33 @@ class App extends Component {
               login: userObject.login,
               repositories: userObject.public_repos,
               followers: userObject.followers,
-              following: userObject.following
-            }
+              following: userObject.following,
+            },
           });
         })
-        .catch(err => {
+        .catch((err) => {
+          console.log(err);
+        });
+      ajax()
+        .get(
+          `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/repos`
+        )
+        .then((userRepos) => {
+          console.log(userRepos);
+          this.setState({ repos: userRepos });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      ajax()
+        .get(
+          `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/starred`
+        )
+        .then((userStarred) => {
+          console.log(userStarred);
+          this.setState({ starred: userStarred });
+        })
+        .catch((err) => {
           console.log(err);
         });
     }
@@ -44,7 +67,7 @@ class App extends Component {
   render() {
     return (
       <AppContent
-        requestHandler={event => this.requestHandler(event)}
+        requestHandler={(event) => this.requestHandler(event)}
         userinfo={this.state.userInfo}
         repos={this.state.repos}
         starred={this.state.starred}

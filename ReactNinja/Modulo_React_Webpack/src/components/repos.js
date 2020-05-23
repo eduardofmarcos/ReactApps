@@ -1,26 +1,33 @@
-import React from "react";
+import React from 'react';
 
-const Repos = props => (
-  <div className={props.classname}>
-    <h2>{props.title}</h2>
-    <ul>
-      {props.arrayToMap.map((element, index) => (
-        <li key={index}>
-          <a href={element.link}>{element.name}</a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const Repos = (props) => {
+  const repo = (
+    <div className={props.classname}>
+      <h2>{props.title}</h2>
+      <ul>
+        {props.repos.map((element, index) => {
+          let newLink = element.git_url.replace('git', 'https');
 
+          return (
+            <li key={index}>
+              <a href={newLink}>{element.name}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+
+  return repo;
+};
 Repos.defaultProps = {
-  className: ""
+  className: '',
 };
 
 Repos.propTypes = {
   classname: React.PropTypes.string,
   title: React.PropTypes.string.isRequired,
-  arrayToMap: React.PropTypes.array
+  arrayToMap: React.PropTypes.array,
 };
 
 export default Repos;

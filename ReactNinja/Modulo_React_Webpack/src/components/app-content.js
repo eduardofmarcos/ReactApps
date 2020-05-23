@@ -15,7 +15,7 @@ const AppContent = ({ userinfo, repos, starred, requestHandler }) => (
     )}
 
     {!!starred.length && (
-      <Repos classname="starred" starred={starred} title="Favoritos" />
+      <Repos classname="starred" repos={starred} title="Favoritos" />
     )}
   </div>
 );
