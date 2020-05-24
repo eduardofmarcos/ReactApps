@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const SearchBar = ({ requestHandler }) => (
+const SearchBar = ({ requestHandler, isDisable }) => (
   <div className="search">
     <input
+      disabled={isDisable}
       type="search"
       placeholder="Digite o nome do usuario"
       onKeyUp={requestHandler}

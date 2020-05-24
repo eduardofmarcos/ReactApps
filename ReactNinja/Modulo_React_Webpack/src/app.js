@@ -13,6 +13,7 @@ class App extends Component {
       starred: [],
       bRepoActive: false,
       bStarredActive: false,
+      isFetching: false,
     };
   }
 
@@ -33,13 +34,16 @@ class App extends Component {
     const value = event.target.value;
     const keyCode = event.which || event.keyCode;
     const enterKey = 13;
+
     if (keyCode === enterKey) {
+      this.setState({
+        isFetching: true,
+      });
       ajax()
         .get(
           `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}`
         )
         .then((userObject) => {
-          console.log(userObject);
           this.setState({
             userInfo: {
               photo: userObject.avatar_url,
@@ -49,11 +53,20 @@ class App extends Component {
               followers: userObject.followers,
               following: userObject.following,
             },
+            repos: [],
+            starred: [],
+            bRepoActive: false,
+            bStarredActive: false,
+            isFetching: false,
           });
         })
         .catch((err) => {
           console.log(err);
+        })
+        .always(() => {
+          this.setState({ isFetching: false });
         });
+
       ajax()
         .get(
           `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/repos`
@@ -84,6 +97,7 @@ class App extends Component {
       <AppContent
         toggleAbuttonHandler={(event) => this.toggleAbuttonHandler(event)}
         requestHandler={(event) => this.requestHandler(event)}
+        isFetching={this.state.isFetching}
         userinfo={this.state.userInfo}
         repos={this.state.repos}
         starred={this.state.starred}
