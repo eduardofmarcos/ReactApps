@@ -95,14 +95,9 @@ class App extends Component {
   render() {
     return (
       <AppContent
+        {...this.state}
         toggleAbuttonHandler={(event) => this.toggleAbuttonHandler(event)}
         requestHandler={(event) => this.requestHandler(event)}
-        isFetching={this.state.isFetching}
-        userinfo={this.state.userInfo}
-        repos={this.state.repos}
-        starred={this.state.starred}
-        buttonRepoStatus={this.state.bRepoActive}
-        buttonStarredStatus={this.state.bStarredActive}
       />
     );
   }

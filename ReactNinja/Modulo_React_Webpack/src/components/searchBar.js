@@ -11,8 +11,9 @@ const SearchBar = ({ requestHandler, isDisable }) => (
   </div>
 );
 
-// SearchBar.propType = {
-//   requestHandler: React.propType.func.isRequired
-// };
+SearchBar.propType = {
+  requestHandler: React.PropTypes.func.isRequired,
+  isDisable: React.PropTypes.bool.isRequired,
+};
 
 export default SearchBar;
