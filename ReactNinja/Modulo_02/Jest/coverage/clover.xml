@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1590793974378" clover="3.2.0">
-  <project timestamp="1590793974378" name="All files">
-    <metrics statements="46" coveredstatements="44" conditionals="24" coveredconditionals="16" methods="12" coveredmethods="11" elements="82" coveredelements="71" complexity="0" loc="46" ncloc="46" packages="8" files="8" classes="8">
+<coverage generated="1591132170772" clover="3.2.0">
+  <project timestamp="1591132170772" name="All files">
+    <metrics statements="68" coveredstatements="66" conditionals="32" coveredconditionals="24" methods="18" coveredmethods="17" elements="118" coveredelements="107" complexity="0" loc="68" ncloc="68" packages="12" files="12" classes="12">
       <package name="every">
         <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <file name="every.js" path="/home/eduardo/Documents/Projects/ReactApps/ReactNinja/Modulo_02/Jest/src/every/every.js">
@@ -73,6 +73,52 @@
           <line num="3" count="1" type="cond" truecount="0" falsecount="2"/>
           <line num="4" count="3" type="stmt"/>
           <line num="5" count="9" type="cond" truecount="2" falsecount="0"/>
+        </file>
+      </package>
+      <package name="reduce">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <file name="reduce.js" path="/home/eduardo/Documents/Projects/ReactApps/ReactNinja/Modulo_02/Jest/src/reduce/reduce.js">
+          <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="6" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="reduce-recursive">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <file name="reduce-recursive.js" path="/home/eduardo/Documents/Projects/ReactApps/ReactNinja/Modulo_02/Jest/src/reduce-recursive/reduce-recursive.js">
+          <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="15" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="18" count="6" type="stmt"/>
+          <line num="19" count="6" type="stmt"/>
+          <line num="20" count="6" type="stmt"/>
+        </file>
+      </package>
+      <package name="reverse">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="reverse.js" path="/home/eduardo/Documents/Projects/ReactApps/ReactNinja/Modulo_02/Jest/src/reverse/reverse.js">
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="8" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="reverse-recursive">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <file name="reverse-recursive.js" path="/home/eduardo/Documents/Projects/ReactApps/ReactNinja/Modulo_02/Jest/src/reverse-recursive/reverse-recursive.js">
+          <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="6" type="cond" truecount="2" falsecount="0"/>
         </file>
       </package>
       <package name="some">
