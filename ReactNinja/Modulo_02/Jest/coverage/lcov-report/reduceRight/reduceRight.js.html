@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for filter-recursive/filter-recursive.js</title>
+    <title>Code coverage report for reduceRight/reduceRight.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">filter-recursive</a> filter-recursive.js
+      <a href="../index.html">All files</a> / <a href="index.html">reduceRight</a> reduceRight.js
     </h1>
     <div class='clearfix'>
     </div>
@@ -36,47 +36,32 @@
 11
 12
 13
-14
-15
-16
-17
-18
-19</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+14</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Checking function filter with recursiveness
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// checking reduce right with iteration
 &nbsp;
-const filter = (arr, func) =&gt; {
-  let i = 0;
+const reduceRight = (arr, func, acc) =&gt; {
+  let accType = acc ? acc : 0;
 &nbsp;
-  const internalFilter = (internalArr, internalIndex) =&gt; {
-    internalIndex = i++;
+  for (let i = arr.length - 1; i &gt; -1; i--) {
+    accType = func(accType, i, arr[i]);
+  }
 &nbsp;
-    if (internalArr.length === 0) return [];
-    const [head, ...tail] = internalArr;
-    if (func(head, internalIndex, internalArr)) {
-      return [head].concat(internalFilter(tail, func));
-    } else return internalFilter(tail, func);
-  };
-  return internalFilter(arr, i);
+  return accType;
 };
 &nbsp;
-export default filter;
+export default reduceRight;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
