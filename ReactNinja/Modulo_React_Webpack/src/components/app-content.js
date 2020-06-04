@@ -5,7 +5,7 @@ import ActionButtons from './actionButtons';
 import Repos from './repos';
 
 const AppContent = ({
-  userinfo,
+  userInfo,
   repos,
   starred,
   requestHandler,
@@ -17,8 +17,8 @@ const AppContent = ({
   <div className="app">
     <SearchBar isDisable = {isFetching} requestHandler={requestHandler} />
     {isFetching && <div>Loading...</div>}
-    {!!userinfo && <UserInfo userinfo={userinfo} />}
-    {!!userinfo && (
+    {!!userInfo && <UserInfo userinfo={userInfo} />}
+    {!!userInfo && (
       <ActionButtons toggleAbuttonHandler={toggleAbuttonHandler} />
     )}
 
