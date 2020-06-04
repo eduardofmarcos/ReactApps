@@ -1,12 +1,11 @@
 //use strict";
 
-import React from "react";
-import {render} from "react-dom";
-import { AppContainer } from "react-hot-loader";
+import React from 'react';
+import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-import App from "./app";
-//import css from './css/style.css'
-//console.log(css)
+import App from './app';
+import './css/style.css';
 
 const renderApp = (NextApp) => {
   render(
@@ -20,8 +19,8 @@ const renderApp = (NextApp) => {
 renderApp(App);
 
 if (module.hot) {
-  module.hot.accept("./app", () => {
-    const NextApp = require("./app").default;
+  module.hot.accept('./app', () => {
+    const NextApp = require('./app').default;
     renderApp(NextApp);
   });
 }
