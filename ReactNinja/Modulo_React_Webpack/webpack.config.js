@@ -2,7 +2,7 @@
 
 const path = require("path");
 const webpack = require("webpack");
-const HtmlPlugin = require("webpack-html-plugin");
+const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: "source-map",
@@ -21,7 +21,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlPlugin({
-      title: "GitHub App ok",
+      title: "GitHub App",
       template: path.join(__dirname, "src", "html", "template.html"),
     }),
   ],
