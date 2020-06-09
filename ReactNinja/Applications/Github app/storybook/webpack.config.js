@@ -1,4 +1,4 @@
-const webpackConfig = require("@kadira/storybook/dist/server/config/defaults/webpack.config.js")
+const webpackConfig = require('@kadira/storybook/dist/server/config/defaults/webpack.config.js')
 
 module.exports = function (config, env) {
   const newConfig = webpackConfig(config, env)
@@ -7,8 +7,8 @@ module.exports = function (config, env) {
     {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: "standard",
-    },
+      loader: 'standard'
+    }
   ]
   return newConfig
 }

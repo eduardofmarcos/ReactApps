@@ -1,8 +1,8 @@
 //"use strict"
 
-import React, { Component } from "react"
-import AppContent from "./components/app-content"
-import ajax from "@fdaciuk/ajax"
+import React, { Component } from 'react'
+import AppContent from './components/app-content'
+import ajax from '@fdaciuk/ajax'
 
 class App extends Component {
   constructor() {
@@ -19,11 +19,11 @@ class App extends Component {
 
   toggleAbuttonHandler = (event) => {
     console.log(event.target.innerText)
-    if (event.target.innerText.includes("repositorios")) {
+    if (event.target.innerText.includes('repositorios')) {
       this.setState({
         bRepoActive: !this.state.bRepoActive,
       })
-    } else if (event.target.innerText.includes("Favoritos")) {
+    } else if (event.target.innerText.includes('Favoritos')) {
       this.setState({
         bStarredActive: !this.state.bStarredActive,
       })

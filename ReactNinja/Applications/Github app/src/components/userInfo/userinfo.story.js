@@ -11,7 +11,7 @@ storiesOf('UserInfo Component', module).add('with Userinfo Object', () => (
         username: 'surfin',
         repositories: '10',
         followers: '5',
-        following: '3',
+        following: '3'
       }}
     />
   </div>

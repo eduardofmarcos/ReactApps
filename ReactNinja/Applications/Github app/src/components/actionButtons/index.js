@@ -9,7 +9,7 @@ const ActionButtons = (props) => (
 )
 
 ActionButtons.propType = {
-  toggleAbuttonHandler: React.PropTypes.func.isRequired,
+  toggleAbuttonHandler: React.PropTypes.func.isRequired
 }
 
 export default ActionButtons

@@ -13,7 +13,7 @@ const AppContent = ({
   toggleAbuttonHandler,
   bRepoActive,
   bStarredActive,
-  isFetching,
+  isFetching
 }) => (
   <div className='app'>
     <SearchBar isDisable={isFetching} requestHandler={requestHandler} />
@@ -41,7 +41,7 @@ AppContent.propTypes = {
   toggleAbuttonHandler: React.PropTypes.func.isRequired,
   bRepoActive: React.PropTypes.bool.isRequired,
   bStarredActive: React.PropTypes.bool.isRequired,
-  isFetching: React.PropTypes.bool.isRequired,
+  isFetching: React.PropTypes.bool.isRequired
 }
 
 export default AppContent

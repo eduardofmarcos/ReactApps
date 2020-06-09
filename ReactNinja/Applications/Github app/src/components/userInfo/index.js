@@ -24,8 +24,8 @@ UserInfo.defaultProps = {
     login: '',
     repositories: '',
     followers: '',
-    following: '',
-  }),
+    following: ''
+  })
 }
 
 UserInfo.propTypes = {
@@ -35,8 +35,8 @@ UserInfo.propTypes = {
     login: PropTypes.string.isRequired,
     repositories: PropTypes.number.isRequired,
     followers: PropTypes.number.isRequired,
-    following: PropTypes.number.isRequired,
-  }),
+    following: PropTypes.number.isRequired
+  })
 }
 
 export default UserInfo

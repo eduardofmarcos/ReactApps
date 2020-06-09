@@ -7,7 +7,7 @@ const Repos = (props) => {
       <h2>{props.title}</h2>
       <ul>
         {props.repos.map((element, index) => {
-          let newLink = element.git_url.replace('git', 'https')
+          const newLink = element.git_url.replace('git', 'https')
 
           return (
             <li key={index}>
@@ -24,13 +24,13 @@ const Repos = (props) => {
 Repos.defaultProps = {
   className: '',
   repos: [],
-  newLink:''
+  newLink: ''
 }
 
 Repos.propTypes = {
   classname: React.PropTypes.string,
   title: React.PropTypes.string.isRequired,
-  repos: React.PropTypes.array,
+  repos: React.PropTypes.array
 }
 
 export default Repos
