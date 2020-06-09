@@ -1,0 +1,13 @@
+.repos-info {
+  display: -webkit-inline-box;
+}
+
+.repos-info {
+  margin-left: 5px;
+  list-style: none;
+}
+
+.repos-info li {
+  margin-right: 10px;
+  border: 1px solid grey;
+}
