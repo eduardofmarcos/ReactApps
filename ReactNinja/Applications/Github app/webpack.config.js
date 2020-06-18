@@ -3,10 +3,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
+const validate = require('webpack-validator')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 
-module.exports = {
+module.exports = validate({
   devtool: 'source-map',
   entry: [
     'react-hot-loader/patch',
@@ -61,4 +62,4 @@ module.exports = {
       components: path.join(__dirname, 'src', 'components')
     }
   }
-}
+})

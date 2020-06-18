@@ -1,8 +1,8 @@
 import React from 'react'
-import style from './../search/search.css'
+import './search.css'
 
 const SearchBar = ({ requestHandler, isDisable }) => (
-  <div className={style.search}>
+  <div className='search'>
     <input
       disabled={isDisable}
       type='search'
