@@ -1,7 +1,7 @@
 'use-strict'
 
 import React, { PropTypes } from 'react'
-import './..//userInfo/userinfo.css'
+import './userinfo.css'
 
 const UserInfo = ({ userinfo }) => (
   <div className='user-info'>

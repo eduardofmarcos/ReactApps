@@ -1,5 +1,5 @@
 import React from 'react'
-import './../actionButtons/action.css'
+import './action.css'
 
 const ActionButtons = (props) => (
   <div className='actions'>

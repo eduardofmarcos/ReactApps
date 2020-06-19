@@ -3,7 +3,7 @@ import SearchBar from 'components/search/index'
 import UserInfo from 'components/userInfo/index'
 import ActionButtons from 'components/actionButtons/index'
 import Repos from 'components/repos/index'
-import './../app-content/app.css'
+import './app.css'
 
 const AppContent = ({
   userInfo,

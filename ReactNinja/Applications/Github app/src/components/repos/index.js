@@ -1,5 +1,5 @@
 import React from 'react'
-import './../repos/repos.css'
+import './repos.css'
 
 const Repos = (props) => {
   const repo = (
