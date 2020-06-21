@@ -13,7 +13,8 @@ const AppContent = ({
   toggleAbuttonHandler,
   bRepoActive,
   bStarredActive,
-  isFetching
+  isFetching,
+  handlePagination
 }) => (
   <div className='app'>
     <SearchBar isDisable={isFetching} requestHandler={requestHandler} />
@@ -23,13 +24,25 @@ const AppContent = ({
       <ActionButtons toggleAbuttonHandler={toggleAbuttonHandler} />
     )}
 
-    {!!repos.length && bRepoActive && (
-      <Repos classname='repositories' repos={repos} title='Repositorios' />
-    )}
+    <div className='repos-container'>
+      {!!repos.length && bRepoActive && (
+        <Repos
+          className='repos'
+          repos={repos}
+          title='Repositorios'
+          handlePagination={(clicked) => handlePagination('repos', clicked)}
+        />
+      )}
 
-    {!!starred.length && bStarredActive && (
-      <Repos classname='starred' repos={starred} title='Favoritos' />
-    )}
+      {!!starred.length && bStarredActive && (
+        <Repos
+          className='starred'
+          repos={starred}
+          title='Favoritos'
+          handlePagination={(clicked) => handlePagination('starred', clicked)}
+        />
+      )}
+    </div>
   </div>
 )
 
@@ -41,7 +54,8 @@ AppContent.propTypes = {
   toggleAbuttonHandler: React.PropTypes.func.isRequired,
   bRepoActive: React.PropTypes.bool.isRequired,
   bStarredActive: React.PropTypes.bool.isRequired,
-  isFetching: React.PropTypes.bool.isRequired
+  isFetching: React.PropTypes.bool.isRequired,
+  handlePagination: React.PropTypes.func.isRequired
 }
 
 export default AppContent

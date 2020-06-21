@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import pagination from '../../utils/pagination/index'
 import Page from './page'
+import './pagination.css'
 
 const Pagination = ({ total, activePage, pageLink, onClick }) => (
   <ul>

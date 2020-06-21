@@ -14,19 +14,53 @@ class App extends Component {
       bRepoActive: false,
       bStarredActive: false,
       isFetching: false,
+      repoPage: 1,
+      starredPage: 1
     }
+    this.perPage = 3
   }
 
   toggleAbuttonHandler = (event) => {
-    console.log(event.target.innerText)
     if (event.target.innerText.includes('repositorios')) {
       this.setState({
-        bRepoActive: !this.state.bRepoActive,
+        bRepoActive: !this.state.bRepoActive
       })
     } else if (event.target.innerText.includes('Favoritos')) {
       this.setState({
-        bStarredActive: !this.state.bStarredActive,
+        bStarredActive: !this.state.bStarredActive
       })
+    }
+  }
+
+  getTypePage = (type, page) => {
+    return (e) => {
+      if (type === 'repos') {
+        ajax()
+          .get(
+            `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${this.state.userInfo.login}/repos?per_page=${this.perPage}&page=${this.state.repoPage}`
+          )
+          .then((userRepos) => {
+            console.log(userRepos)
+            this.setState({ repos: userRepos, repoPage: page })
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+      if (type === 'starred') {
+        console.log(this.state.starredPage)
+        ajax()
+          .get(
+            `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${this.state.userInfo.login}/starred?per_page=${this.perPage}&page=${this.state.starredPage}`
+          )
+          .then((userStarred) => {
+            console.log(userStarred)
+            this.setState({ starred: userStarred, starredPage: page })
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
     }
   }
 
@@ -37,7 +71,7 @@ class App extends Component {
 
     if (keyCode === enterKey) {
       this.setState({
-        isFetching: true,
+        isFetching: true
       })
       ajax()
         .get(
@@ -51,13 +85,13 @@ class App extends Component {
               login: userObject.login,
               repositories: userObject.public_repos,
               followers: userObject.followers,
-              following: userObject.following,
+              following: userObject.following
             },
             repos: [],
             starred: [],
             bRepoActive: false,
             bStarredActive: false,
-            isFetching: false,
+            isFetching: false
           })
         })
         .catch((err) => {
@@ -69,7 +103,7 @@ class App extends Component {
 
       ajax()
         .get(
-          `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/repos`
+          `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/repos?per_page=${this.perPage}`
         )
         .then((userRepos) => {
           console.log(userRepos)
@@ -80,7 +114,7 @@ class App extends Component {
         })
       ajax()
         .get(
-          `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/starred`
+          `https://cors-anywhere.herokuapp.com/https://api.github.com/users/${value}/starred?per_page=${this.perPage}`
         )
         .then((userStarred) => {
           console.log(userStarred)
@@ -95,9 +129,15 @@ class App extends Component {
   render() {
     return (
       <AppContent
-        {...this.state}
+        repos={this.state.repos}
+        starred={this.state.starred}
+        userInfo={this.state.userInfo}
+        bRepoActive={this.state.bRepoActive}
+        bStarredActive={this.state.bStarredActive}
+        isFetching={this.state.isFetching}
         toggleAbuttonHandler={(event) => this.toggleAbuttonHandler(event)}
         requestHandler={(event) => this.requestHandler(event)}
+        handlePagination={(type, page) => this.getTypePage(type, page)()}
       />
     )
   }
